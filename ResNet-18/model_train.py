@@ -10,7 +10,7 @@ import torch.utils.data as Data
 from torchvision import transforms
 from torchvision.datasets import FashionMNIST
 
-from model import GoogLeNet, Inception
+from model import ResNet18, Residual
 
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
@@ -156,7 +156,7 @@ def matplot_acc_loss(train_process):
 
 if __name__ == '__main__':
     # 将模型实例化
-    GoogLeNet = GoogLeNet(Inception)
+    ResNet18 = ResNet18(Residual)
     train_dataloader, val_dataloader = train_val_data_process()
-    train_process = train_model_process(GoogLeNet, train_dataloader, val_dataloader, 20)
+    train_process = train_model_process(ResNet18, train_dataloader, val_dataloader, 20)
     matplot_acc_loss(train_process)
